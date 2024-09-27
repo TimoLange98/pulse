@@ -135,6 +135,7 @@ dist
 /angular-app/.angular/
 /angular-app/.cache/
 /angular-app/.env
+.angular/
 
 # NestJS specific
 /nest-app/dist/
