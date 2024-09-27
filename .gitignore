@@ -128,3 +128,14 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# Angular specific
+/angular-app/dist/
+/angular-app/.angular/
+/angular-app/.cache/
+/angular-app/.env
+
+# NestJS specific
+/nest-app/dist/
+/nest-app/.env
