@@ -5,8 +5,27 @@
   flex-direction: column;
   align-items: center;
 
-  height: 100svh;
+  height: calc(100svh - 4rem);
   width: 100%;
+  padding-block: 2rem;
 
   background-color: $primary;
+}
+
+.app-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 100px;
+}
+
+.nav-item {
+  text-decoration: none;
+}
+
+.sidebar-icon {
+  color: #fff;
 }

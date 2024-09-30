@@ -1,11 +1,31 @@
 @import '../../../styles/_variables.scss';
 
-.app-navbar {
-  background-color: transparent;
-}
-
 .navbar-container {
   display: flex;
   height: 100%;
-  padding-inline: 2rem;
+  padding-inline: 2rem 8rem;
+
+  &>* {
+    user-select: none;
+  }
+}
+
+.user-menu-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.user-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #c3c3c3;
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
 }
