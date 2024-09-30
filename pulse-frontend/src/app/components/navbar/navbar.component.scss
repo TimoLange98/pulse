@@ -1,0 +1,11 @@
+@import '../../../styles/_variables.scss';
+
+.app-navbar {
+  background-color: transparent;
+}
+
+.navbar-container {
+  display: flex;
+  height: 100%;
+  padding-inline: 2rem;
+}

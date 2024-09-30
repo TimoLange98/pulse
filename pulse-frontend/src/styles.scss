@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/_variables.scss';
+
+* {
+  font-family: 'roboto', sans-serif, monospace;
+}
+
+body {
+  height: 100svh;
+  width: 100svw;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}

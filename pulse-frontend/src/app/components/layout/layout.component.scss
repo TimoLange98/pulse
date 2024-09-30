@@ -1,0 +1,20 @@
+@import '../../../styles/variables';
+
+.content {
+  // background: #9900ff;
+}
+
+.app-layout {
+  height: 100svh;
+  width: 100svw;
+
+  display: grid;
+  grid-template-columns: 8svw 92svw;
+}
+
+.nav-content-container {
+  display: grid;
+  grid-template-rows: 8svh 92svh;
+
+  background-color: $mainBackground;
+}
