@@ -1,7 +1,14 @@
 <div class="projects-page-container">
-  <h1>Projects</h1>
-  <button class="create-project-button">
-    <fa-icon [icon]="faAdd" size="sm" class="sidebar-icon"></fa-icon>
-    Create Project
-  </button>
+  <div class="header">
+    <h1>Projects</h1>
+    <button class="create-project-button">
+      <svg>
+        <use xlink:href="assets/icons/plus-small.svg#plus-small-svg"></use>
+      </svg>
+      Create Project
+    </button>
+  </div>
+  <div class="content">
+    <app-projects-list />
+  </div>
 </div>

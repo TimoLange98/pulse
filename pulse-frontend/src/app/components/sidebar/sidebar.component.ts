@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faHome, faUser, faGear } from '@fortawesome/free-solid-svg-icons';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  faHome = faHome;
-  faUser = faUser;
-  faGear = faGear;
+
+  logOut() {
+    alert("You logged out!")
+    // TODO: Log out user
+  }
 }

@@ -1,5 +1,10 @@
 @import '../../../styles/variables';
 
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
 .app-sidebar {
   display: flex;
   flex-direction: column;
@@ -13,19 +18,59 @@
 }
 
 .app-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 65px;
-  align-items: center;
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
   width: 100%;
-  margin-top: 100px;
+  margin-top: 160px;
 }
 
 .nav-item {
+  display: block;
   text-decoration: none;
+  height: 1.75rem;
+  width: 1.75rem;
+  padding: 1rem;
+
+  & svg,
+  & use {
+    color: #fff;
+
+    height: 1.75rem;
+    width: 1.75rem;
+  }
 }
 
-.sidebar-icon {
-  color: #fff;
+.active-link {
+  background-color: $accent-blue;
+  border-radius: 50%;
+  transform: scale(115%);
+  transition: transform 300ms ease-in-out;
+}
+
+.sign-out-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  margin-top: auto;
+  align-self: center;
+
+  & svg {
+    color: #fff;
+
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
