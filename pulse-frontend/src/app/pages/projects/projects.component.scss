@@ -3,7 +3,6 @@
 .projects-page-container {
   position: relative;
   height: 100%;
-  background: teal;
 }
 
 .header {
@@ -43,4 +42,8 @@
     margin-bottom: 4px;
     margin-left: -4px;
   }
+}
+
+.content {
+  height: 77svh;
 }

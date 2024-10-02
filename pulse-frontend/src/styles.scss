@@ -1,4 +1,4 @@
-@import 'styles/_variables.scss';
+@import 'styles/variables.scss';
 
 * {
   font-family: 'roboto', sans-serif, monospace;
@@ -16,4 +16,16 @@ p {
 
 h1, img {
   user-select: none;
+}
+
+p, h1, h2, h3, h4, h5, span {
+  &::-moz-selection { 
+    color: #000;
+    background: $accent--hover;
+  }
+  
+  &::selection {
+    color: #000;
+    background: $accent--hover;
+  }
 }

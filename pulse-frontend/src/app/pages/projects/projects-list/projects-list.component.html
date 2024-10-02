@@ -1,3 +1,5 @@
 <div class="project-list-container">
-  
+  @for(project of (projects$ | async); track project.id) {
+  <app-project-card [project]="project" />
+  }
 </div>

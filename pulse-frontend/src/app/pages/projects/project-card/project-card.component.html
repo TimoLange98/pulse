@@ -1,1 +1,31 @@
-<p>project-card works!</p>
+<div class="project-card-container">
+  <div class="header">
+    <h3 class="title action-indicator">{{ project.title }}</h3>
+    <button class="menu-btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Capa_1"
+        viewBox="0 0 24 24"
+        width="35">
+        <g>
+          <circle cx="18" cy="12" r="2" fill="currentColor" />
+          <circle cx="12" cy="12" r="2" fill="currentColor" />
+          <circle cx="6" cy="12" r="2" fill="currentColor" />
+        </g>
+      </svg>
+    </button>
+  </div>
+  <p class="description action-indicator">{{ project.description }}</p>
+  <div class="progress-container">
+    <span class="progress-percentage">{{ getProgressInPercentage() }} %</span>
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+  @for (collaborator of collaborators; track collaborators) {
+    <!-- TODO: Profile pic mini component to also reuse in the app header  -->
+    <div class="profile-pic" [style]="'z-index: index'"></div>
+  }
+</div>

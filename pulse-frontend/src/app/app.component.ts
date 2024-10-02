@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { LayoutComponent } from "./components/layout/layout.component";
 import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ProjectService } from './services/projects.service';
+import { ToastService } from './services/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +12,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [RouterOutlet, LayoutComponent, HomeComponent, SidebarComponent],
+  providers: [ProjectService, ToastService]
 })
 export class AppComponent {}
