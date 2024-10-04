@@ -24,8 +24,17 @@
       <div class="progress-bar"></div>
     </div>
   </div>
-  @for (collaborator of collaborators; track collaborators) {
-    <!-- TODO: Profile pic mini component to also reuse in the app header  -->
-    <div class="profile-pic" [style]="'z-index: index'"></div>
-  }
+  <div class="footer-container">
+    <div class="associated-users-list-container">
+      @for (collaborator of collaborators; track collaborator.id) {
+      <app-profile-thumbnail
+        [src]="collaborator.profilePictureSmallPath"
+        [alt]="collaborator.name"
+        [width]="32"
+        [height]="32"
+        class="user-thumbnail"
+        [style]="{'z-index': $index, 'left': 22 * $index + 'px'}" />
+      }
+    </div>
+  </div>
 </div>

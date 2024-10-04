@@ -19,7 +19,7 @@ export class ProjectService {
         updatedBy: 'admin-tl',
         title: 'My first Project',
         description: 'This is my first project. It is a really interesting one. Actually its this very project you are looking at right now. Im holding my project inside of the project that I curretly build.',
-        associatedUserIds: ['tl'],
+        associatedUserIds: ['tl', 'tl', 'tl'],
         deadline: new Date(new Date().setDate(29)),
         progress: 10,
         tasksOpen: 90,
@@ -32,7 +32,7 @@ export class ProjectService {
         updatedBy: 'admin-tl',
         title: 'My second Project',
         description: 'This is my second project. It is a really interesting one. Actually its this very project you are looking at right now. Im holding my project inside of the project that I curretly build.',
-        associatedUserIds: ['tl'],
+        associatedUserIds: ['tl', 'tl'],
         deadline: new Date(new Date().setDate(29)),
         progress: 50,
         tasksOpen: 10,
@@ -49,19 +49,19 @@ export class ProjectService {
         id: 'tl',
         lastSeen: new Date(),
         name: 'Timo',
-        profilePictureSmallPath: ''
+        profilePictureSmallPath: 'assets/profile-placeholder.png'
       },
       {
         id: 'tl-2',
         lastSeen: new Date(),
         name: 'Timo',
-        profilePictureSmallPath: ''
+        profilePictureSmallPath: 'assets/profile-placeholder.png'
       },
       {
         id: 'tl-3',
         lastSeen: new Date(),
         name: 'Timo',
-        profilePictureSmallPath: ''
+        profilePictureSmallPath: 'assets/profile-placeholder.png'
       },
     ]
 

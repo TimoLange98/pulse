@@ -112,3 +112,21 @@
   background-color: $accent;
   border-radius: 1.5em;
 }
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  margin-top: auto;
+}
+
+.associated-users-list-container {
+  position: relative;
+}
+
+.user-thumbnail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
