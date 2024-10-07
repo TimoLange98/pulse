@@ -1,1 +1,77 @@
-<p>login works!</p>
+<div class="app-login-wrapper">
+  <div class="app-login-container">
+    <div class="gallery-container">
+      <img [src]="currentArtworkPath" alt="Artwork" class="slider-image" />
+    </div>
+    <div class="login-signup-container">
+      <h2>Create an account</h2>
+      <p class="have-account-txt">
+        Already have an account?
+        <a class="link" routerLink="/">Log in</a>
+      </p>
+      <div class="login-content-container">
+        <form class="signup-form" [formGroup]="createUserForm" (ngSubmit)="handleCreateUser()">
+          <div class="input-invalid-text-container">
+            <div class="name-inputs-container">
+              <input id="firstName" formControlName="firstName" class="text-input" type="text" placeholder="First name" />
+              <input id="lastName" formControlName="lastName" class="text-input" type="text" placeholder="Last name" />
+            </div>
+            @if(this.createUserForm.get('firstName')?.invalid && this.createUserForm.get('firstName')?.touched &&
+            this.createUserForm.get('lastName')?.invalid && this.createUserForm.get('lastName')?.touched) {
+            <p class="form-invalid-text">Please provide a first and last name!</p>
+            }
+          </div>
+          <div class="input-invalid-text-container">
+            <input formControlName="email" class="text-input" type="email" placeholder="Email" />
+            @if(this.createUserForm.get('email')?.invalid && this.createUserForm.get('email')?.touched) {
+            <p class="form-invalid-text">Please provide a correct email address!</p>
+            }
+          </div>
+          <div class="input-invalid-text-container">
+            <div class="password-input-container">
+              <input
+                formControlName="password"
+                class="text-input"
+                [type]="isPasswordVisible ? 'text' : 'password'"
+                placeholder="Enter your password" />
+                <span class="toggle-show-password-btn" (click)="toggleShowPassword()">
+                  @if(isPasswordVisible) {
+                    <svg class="toggle-pw-icon">
+                      <use xlink:href="assets/icons/eye-crossed.svg#eye-crossed-svg"></use>
+                    </svg>
+                  } @else {
+                    <svg class="toggle-pw-icon">
+                      <use xlink:href="assets/icons/eye.svg#eye-svg"></use>
+                    </svg>
+                  }
+                </span>
+            </div>
+            @if(this.createUserForm.get('password')?.invalid && this.createUserForm.get('password')?.touched) {
+            <p class="form-invalid-text">Please provide a password with at least 6 characters!</p>
+            }
+          </div>
+          <div class="terms-accept-container">
+            <label class="custom-checkbox">
+              <input type="checkbox" />
+              <span class="checkbox"></span>
+            </label>
+            <p>
+              I agree to the
+              <a class="link" routerLink="/terms-conditions">Terms & Conditions</a>
+            </p>
+          </div>
+          <button class="create-account-btn">Create account</button>
+        </form>
+        <div class="or-separator">
+          <span class="line"></span>
+          <span class="or-text">or sign up with</span>
+          <span class="line"></span>
+        </div>
+        <div class="third-party-login-options-container">
+          <button id="google-login-btn"></button>
+          <div class="placeholder">Placeholder</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
