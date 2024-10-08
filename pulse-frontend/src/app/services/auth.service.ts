@@ -1,23 +1,62 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { SubSink } from 'subsink';
+import { EnvService } from './env.service';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private isLoggedIn = false;
+export class AuthService implements OnDestroy {
+  subs = new SubSink();
 
-  tryLogIn(username: string, password: string) {
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+  constructor(private http: HttpClient, private envService: EnvService, private toastService: ToastService, private router: Router) {
+    this.subs.sink = this.isLoggedIn$.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['/home']);
+      }
+    });
+  }
+
+  tryRegularLogIn(username: string, password: string) {
     // TODO: Login logic
-    this.isLoggedIn = true;
+    this.isLoggedInSubject.next(true);
+  }
+
+  verifyGoogleCredential(credential: string) {
+    this.http.post<string>(`${this.envService.backendUrl}auth/google/verify`, { credential }).subscribe({
+      next: token => {
+        
+      },
+      error: () => {
+        this.toastService.notify({
+          level: 'error',
+          title: 'Authentication failed!',
+          message: '<message>'
+        })
+      }
+    });
   }
 
   logOut() {
     // TODO: Logout logic
 
-    this.isLoggedIn = false;
+    this.isLoggedInSubject.next(false);
   }
 
-  isUserLoggedIn() {
-    return this.isLoggedIn;
+  isUserLoggedIn(): Observable<boolean> {
+    return this.isLoggedIn$;
+  }
+
+  storeSessionToken() {}
+
+  ngOnDestroy(): void {
+    this.isLoggedInSubject.next(false);
+    this.subs.unsubscribe();
   }
 }
