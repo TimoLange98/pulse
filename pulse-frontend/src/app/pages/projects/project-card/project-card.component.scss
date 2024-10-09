@@ -1,0 +1,132 @@
+@import '../../../../styles/variables';
+
+.project-card-container {
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px 20px 35px 20px;
+  border: 1px solid $borderWhite;
+  border-radius: $borderRadiusL;
+  box-shadow: 0.5px 0.5px 9px -20px rgba(0, 0, 0, 0.073), 1.8px 1.8px 30.2px -20px rgba(0, 0, 0, 0.107),
+    8px 8px 135px -20px rgba(0, 0, 0, 0.18);
+  background-color: #fff;
+
+  width: 18svw;
+  min-width: 250px;
+  max-width: 400px;
+  aspect-ratio: 3/1.75;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  & svg {
+    color: #000;
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+.menu-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  height: 1.5rem;
+  border-radius: 12px;
+
+  display: grid;
+  place-items: center;
+
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+
+    & svg {
+      color: #a3a3a3;
+    }
+    // box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  & svg {
+    color: #b8b8b8;
+  }
+}
+
+.description {
+  font-size: $fontSizeS;
+  color: $textColor;
+
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.action-indicator {
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.progress-bar-container {
+  height: 0.8em;
+  border-radius: 1.5em;
+  background-color: #dfdfdf;
+
+  position: relative;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  margin-top: 1.5rem;
+}
+
+.progress-percentage {
+  align-self: flex-end;
+  color: $textColor;
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: calc(var(--width, 0) * 1%);
+  min-width: 1rem;
+  max-width: calc(100% - 1em);
+  height: 0.8em;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: $accent;
+  border-radius: 1.5em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  margin-top: auto;
+}
+
+.associated-users-list-container {
+  position: relative;
+}
+
+.user-thumbnail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

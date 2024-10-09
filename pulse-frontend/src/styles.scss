@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/variables.scss';
+
+* {
+  font-family: 'roboto', sans-serif, monospace;
+}
+
+body {
+  height: 100svh;
+  width: 100svw;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1, img {
+  user-select: none;
+}
+
+p, h1, h2, h3, h4, h5, span {
+  &::-moz-selection { 
+    color: #000;
+    background: $accent--hover;
+  }
+  
+  &::selection {
+    color: #000;
+    background: $accent--hover;
+  }
+}

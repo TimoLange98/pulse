@@ -1,0 +1,42 @@
+<div class="app-sidebar">
+  <a href="/" class="logo">
+    <img src="assets/brand-logo.svg" alt="brand logo" />
+  </a>
+  <nav class="app-nav">
+    <ul>
+      <li>
+        <a routerLink="/home" routerLinkActive="active-link" class="nav-item">
+          <svg>
+            <use xlink:href="assets/icons/house-chimney.svg#house-chimney-svg"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/projects" routerLinkActive="active-link" class="nav-item">
+          <svg>
+            <use xlink:href="assets/icons/table-columns.svg#table-columns-svg"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile-settings" routerLinkActive="active-link" class="nav-item">
+          <svg>
+            <use xlink:href="assets/icons/user.svg#user-svg"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/settings" routerLinkActive="active-link" class="nav-item">
+          <svg>
+            <use xlink:href="assets/icons/settings.svg#settings-svg"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <button class="sign-out-btn" (click)="logOut()">
+    <svg>
+      <use xlink:href="assets/icons/sign-out-alt.svg#sign-out-alt-svg"></use>
+    </svg>
+  </button>
+</div>
