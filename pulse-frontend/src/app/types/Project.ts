@@ -1,7 +1,8 @@
+import { TaskLabel } from "./TaskLabel";
 import { TrackableResource } from "./TrackableResource";
 
 export type Project = {
-  id: number;
+  id: string;
   associatedUserIds: string[];
   title: string;
   description: string;
@@ -9,4 +10,5 @@ export type Project = {
   tasksCompleted: number;
   tasksOpen: number;
   deadline: Date;
+  labels: TaskLabel[];
 } & TrackableResource;
