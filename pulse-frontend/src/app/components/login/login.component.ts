@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   handleCredentialReponse(res: GoogleCredentialResponse) {
-    this.authService.verifyGoogleCredential(res.clientId);
+    this.authService.verifyGoogleCredential(res.credential);
   }
 
   toggleShowPassword() {
