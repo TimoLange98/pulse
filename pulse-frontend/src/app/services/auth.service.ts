@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 import { EnvService } from './env.service';
 import { ToastService } from './toast.service';
-import { JwtResponse } from '../types/JwtResponse';
+import { AuthenticationResponse } from '../types/AuthenticationResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +30,9 @@ export class AuthService implements OnDestroy {
   }
 
   verifyGoogleCredential(credential: string) {
-    this.subs.sink = this.http.post<JwtResponse>(`${this.envService.backendUrl}auth/google/verify`, { credential }).subscribe({
-      next: token => {
-        console.log(token)
+    this.subs.sink = this.http.post<any>(`${this.envService.backendUrl}auth/google/verify`, { credential }).subscribe({
+      next: response => {
+        console.log(response)
       },
       error: () => {
         this.toastService.notify({

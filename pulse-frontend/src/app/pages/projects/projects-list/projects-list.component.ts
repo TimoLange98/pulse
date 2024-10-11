@@ -19,7 +19,7 @@ export class ProjectsListComponent implements OnInit {
   constructor(private projectsService: ProjectService, private toastService: ToastService) {}
 
   ngOnInit(): void {
-    this.projects$ = this.projects$ = this.projectsService.getProjects().pipe(
+    this.projects$ = this.projects$ = this.projectsService.getMockProjects().pipe(
       catchError(() => {
         this.toastService.notify({
           level: 'error',

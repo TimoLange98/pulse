@@ -1,19 +1,24 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { firstValueFrom, Observable, of } from "rxjs";
 import { Project } from "../types/Project";
 import { Collaborator } from "../types/Collaborator";
+import { EnvService } from "./env.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private envService: EnvService) {}
 
-  getProjects(): Observable<Project[]> {
+  getProjects(userId: string) {
+    return this.http.get<Project[]>(`${this.envService.backendUrl}project/projects/${userId}`);
+  }
+
+  getMockProjects(): Observable<Project[]> {
     const mockProjects: Project[] = [
       {
-        id: 0,
+        id: '',
         createdAt: new Date(),
         updatedAt: new Date(),
         updatedBy: 'admin-tl',
@@ -23,10 +28,11 @@ export class ProjectService {
         deadline: new Date(new Date().setDate(29)),
         progress: 10,
         tasksOpen: 90,
-        tasksCompleted: 10
+        tasksCompleted: 10,
+        labels: []
       },
       {
-        id: 1,
+        id: '',
         createdAt: new Date(),
         updatedAt: new Date(),
         updatedBy: 'admin-tl',
@@ -36,7 +42,8 @@ export class ProjectService {
         deadline: new Date(new Date().setDate(29)),
         progress: 50,
         tasksOpen: 10,
-        tasksCompleted: 10
+        tasksCompleted: 10,
+        labels: []
       }
     ]
 
