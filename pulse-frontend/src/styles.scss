@@ -29,3 +29,15 @@ p, h1, h2, h3, h4, h5, span {
     background: $accent--hover;
   }
 }
+
+.text-input {
+  height: 2.5rem;
+  border-radius: 8px;
+  border: 2px solid #dddddd;
+  padding-left: 0.5rem;
+
+  &:active, &:focus {
+    outline: none;
+    border-color: $accent;
+  }
+}

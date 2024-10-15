@@ -1,9 +1,8 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { JwtAuthGuard } from "src/guards/jwt.auth.guard";
-import { ProjectService } from "src/project/project.service";
-import { ProjectType } from "src/types/ProjectType";
+import { ProjectService } from "src/project/project.service"; 
 
-@UseGuards(JwtAuthGuard)
+// @UseGuards(JwtAuthGuard)
 @Controller('project')
 export class ProjectController {
   constructor(private projectService: ProjectService) {}
@@ -14,7 +13,7 @@ export class ProjectController {
   }
 
   @Post('create') 
-  async createProject(@Body() payload: ProjectType) {
-    return true;
+  async createProject(@Body() payload: {title: string, description: string}) {
+    return await this.projectService.createProject(payload.title, payload.description);
   }
 }

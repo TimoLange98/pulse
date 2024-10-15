@@ -5,7 +5,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 import { EnvService } from './env.service';
 import { ToastService } from './toast.service';
-import { AuthenticationResponse } from '../types/AuthenticationResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,10 @@ import { AuthenticationResponse } from '../types/AuthenticationResponse';
 export class AuthService implements OnDestroy {
   subs = new SubSink();
 
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private isLoggedInSubject = new BehaviorSubject<boolean>(true);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+  // TODO: Hold the user name somewhere
 
   constructor(private http: HttpClient, private envService: EnvService, private toastService: ToastService, private router: Router) {
     this.subs.sink = this.isLoggedIn$.subscribe(isLoggedIn => {
@@ -32,12 +33,12 @@ export class AuthService implements OnDestroy {
   verifyGoogleCredential(credential: string) {
     this.subs.sink = this.http.post<any>(`${this.envService.backendUrl}auth/google/verify`, { credential }).subscribe({
       next: response => {
-        console.log(response)
+        response.success && this.isLoggedInSubject.next(true)
       },
       error: () => {
         this.toastService.notify({
           level: 'error',
-          title: 'Authentication failed!',
+          title: 'Authentication failed',
           message: '<message>'
         })
       }

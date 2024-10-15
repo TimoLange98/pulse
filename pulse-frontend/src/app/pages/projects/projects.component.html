@@ -1,7 +1,7 @@
 <div class="projects-page-container">
   <div class="header">
     <h1>Projects</h1>
-    <button class="create-project-button">
+    <button class="create-project-button" (click)="showCreateProjectModal()">
       <svg>
         <use xlink:href="assets/icons/plus-small.svg#plus-small-svg"></use>
       </svg>
@@ -12,3 +12,7 @@
     <app-projects-list />
   </div>
 </div>
+
+@if (isCreateProjectModalOpen) {
+  <app-create-project-modal (closeModalEvent)="closeCreateProjectModal()" />
+}

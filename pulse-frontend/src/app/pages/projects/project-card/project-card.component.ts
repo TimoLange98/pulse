@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/
 import {SubSink} from 'subsink'
 import { Project } from '../../../types/Project';
 import { Collaborator } from '../../../types/Collaborator';
-import { ProjectService } from '../../../services/projects.service';
+import { ProjectService } from '../../../services/project.service';
 import { ToastService } from '../../../services/toast.service';
 import { ProfileThumbnailComponent } from '../../../components/profile-thumbnail/profile-thumbnail.component';
 

@@ -90,18 +90,6 @@ h2 {
   width: 100%;
 }
 
-.text-input {
-  height: 2.5rem;
-  border-radius: 8px;
-  border: 2px solid #dddddd;
-  padding-left: 0.5rem;
-
-  &:active, &:focus {
-    outline: none;
-    border-color: $accent;
-  }
-}
-
 .terms-accept-container {
   display: flex;
   align-items: center;
