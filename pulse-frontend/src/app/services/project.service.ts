@@ -22,14 +22,18 @@ export class ProjectService {
   }
 
   createProject(userId: string) {
-    this.http.post<{id: string}>(`${this.envService.backendUrl}project/create`, { userId }).subscribe({
+    this.http.post<{ id: string }>(`${this.envService.backendUrl}project/create`, { userId }).subscribe({
       next: result => {
-        this.router.navigate([`project/${result.id}`])
+        this.router.navigate([`project/${result.id}`]);
       },
       error: () => {
         this.toastService.notify({ level: 'error', title: 'An error occured', message: `Project could not be created` });
       }
     });
+  }
+
+  updateProject<K extends keyof Project>(projectId: string, prop: K, value: Project[K]) {
+    return this.http.post(`${this.envService.backendUrl}project/:id/update`, { projectId, prop, value });
   }
 
   getCollaboratorInformation(userIds: string[]): Observable<Collaborator[]> {

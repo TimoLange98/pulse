@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProjectColumn } from '../../../types/ProjectColumn';
 
 @Component({
   selector: 'app-project-column',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './project-column.component.scss'
 })
 export class ProjectColumnComponent {
+  @Input() column!: ProjectColumn;
 
+  constructor() {}
 }

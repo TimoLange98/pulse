@@ -5,7 +5,7 @@
         <input
           #titleInput
           type="text"
-          [value]="project.title"
+          [(ngModel)]="project.title" 
           class="title-input"
           (keydown)="handleTitleInputKeydown($event)"
           [disabled]="!isEditTitle" />
@@ -17,5 +17,16 @@
       </button>
     </div>
   </div>
-  <div class="content"></div>
+  <div class="content">
+    <div class="project-columns-container">
+      @for(column of project.columns; track column.id) {
+      <app-project-column [column]="column" />
+      }
+      <button class="add-column-btn">
+        <svg>
+          <use xlink:href="assets/icons/plus-small.svg#plus-small-svg"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
 </div>

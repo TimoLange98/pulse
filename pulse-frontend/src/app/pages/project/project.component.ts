@@ -4,11 +4,13 @@ import { Project } from '../../types/Project';
 import { SubSink } from 'subsink';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '../../services/toast.service';
+import { ProjectColumnComponent } from "./project-column/project-column.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [],
+  imports: [ProjectColumnComponent, FormsModule],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
 })
@@ -19,7 +21,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService, private toastService: ToastService) {}
+  constructor(private route: ActivatedRoute, private projectService: ProjectService, private toastService: ToastService) {
+    this.handleTitleInputKeydown = this.handleTitleInputKeydown.bind(this);
+  }
 
   ngOnInit(): void {
     this.subs.sink = this.route.params.subscribe(params => {
@@ -41,7 +45,20 @@ export class ProjectComponent implements OnInit, OnDestroy {
   }
 
   handleTitleInputKeydown(e: KeyboardEvent) {
-    if (e.key === 'Enter') this.setIsEditTitle(false);
+    if (e.key === 'Enter') {
+      this.projectService.updateProject(this.project.id, 'title', this.project.title).subscribe({
+        next: () => {
+          this.setIsEditTitle(false);
+        },
+        error: () => {
+          this.toastService.notify({
+            level: 'error',
+            title: 'Something went wrong',
+            message: 'Unable to update the project title'
+          });
+        }
+      });
+    }
   }
 
   setIsEditTitle(isEditTitle: boolean) {
@@ -49,6 +66,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
     if (isEditTitle) {
       setTimeout(() => {
+        this.titleInput.nativeElement.focus();
         this.titleInput.nativeElement.select();
       });
     }

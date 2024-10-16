@@ -71,3 +71,25 @@
     color: inherit;
   }
 }
+
+.add-column-btn {
+  display: grid;
+  place-items: center;
+  border: 2px solid $accent;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 12px;
+  background-color: transparent;
+  box-shadow: 2px 2px 22px -8px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  & svg {
+    color: $accent;
+    width: 30px;
+    height: 30px;
+  }
+}
