@@ -111,8 +111,8 @@ h2 {
 .form-invalid-text {
   position: absolute;
   top: 110%;
-  font-size: .75rem;
-  margin-left: .2rem;
+  font-size: 0.75rem;
+  margin-left: 0.2rem;
   color: #f33022;
 }
 
@@ -162,7 +162,6 @@ h2 {
   outline: none;
 }
 
-
 .or-separator {
   display: flex;
   align-items: center;
@@ -193,18 +192,11 @@ h2 {
   width: 100%;
 }
 
-
-
-
-
-
-
-
-
 .custom-checkbox {
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-right: -0.5rem;
 }
 
 .custom-checkbox input {
@@ -226,7 +218,7 @@ h2 {
 }
 
 .custom-checkbox input:checked + .checkbox::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 6px;
   top: 3px;

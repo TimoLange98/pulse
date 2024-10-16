@@ -25,7 +25,7 @@ export class CreateProjectModalComponent implements OnInit {
 
   handleCreateProject() {
     const { title, description }: { title: string; description: string } = this.createProjectForm.value;
-    this.projectService.createProject(title, description);
+    this.projectService.createProject('');
   }
 
   handleCloseModal() {

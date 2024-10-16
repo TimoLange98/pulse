@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ProjectsListComponent } from "./projects-list/projects-list.component"; 
+import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { CreateProjectModalComponent } from './create-project-modal/create-project-modal.component';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -12,11 +13,9 @@ import { CreateProjectModalComponent } from './create-project-modal/create-proje
 export class ProjectsComponent {
   isCreateProjectModalOpen: boolean = false;
 
-  showCreateProjectModal() {
-    this.isCreateProjectModalOpen = true;
-  }
+  constructor(private projectService: ProjectService) {}
 
-  closeCreateProjectModal() {
-    this.isCreateProjectModalOpen = false;
+  handleCreateNewProject() {
+    this.projectService.createProject('689b8b48-fd3d-4a82-9999-9c1ee2f690a7');
   }
 }

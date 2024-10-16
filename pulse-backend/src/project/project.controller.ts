@@ -12,8 +12,13 @@ export class ProjectController {
     return await this.projectService.getProjects(userId);
   }
 
+  @Get(':id')
+  async getProject(@Param('id') projectId: string) {
+    return await this.projectService.getProject(projectId);
+  }
+
   @Post('create') 
-  async createProject(@Body() payload: {title: string, description: string}) {
-    return await this.projectService.createProject(payload.title, payload.description);
+  async createProject(@Body('userId') userId: string) {
+    return await this.projectService.createProject(userId);
   }
 }

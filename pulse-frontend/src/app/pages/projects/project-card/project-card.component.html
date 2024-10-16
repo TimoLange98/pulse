@@ -1,6 +1,6 @@
 <div class="project-card-container">
   <div class="header">
-    <h3 class="title action-indicator">{{ project.title }}</h3>
+    <h3 class="title action-indicator" (click)="openProject()">{{ project.title }}</h3>
     <button class="menu-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
       </svg>
     </button>
   </div>
-  <p class="description action-indicator">{{ project.description }}</p>
+  <p class="description action-indicator" (click)="openProject()">{{ project.description }}</p>
   <div class="progress-container">
     <span class="progress-percentage">{{ getProgressInPercentage() }} %</span>
     <div class="progress-bar-container">

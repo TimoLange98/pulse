@@ -1,0 +1,21 @@
+<div class="projects-page-container">
+  <div class="header">
+    <div class="title-input-container">
+      <div class="input-wrapper">
+        <input
+          #titleInput
+          type="text"
+          [value]="project.title"
+          class="title-input"
+          (keydown)="handleTitleInputKeydown($event)"
+          [disabled]="!isEditTitle" />
+      </div>
+      <button (click)="setIsEditTitle(true)" class="edit-btn">
+        <svg>
+          <use xlink:href="assets/icons/edit.svg#edit-svg"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="content"></div>
+</div>
