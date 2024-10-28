@@ -1,0 +1,12 @@
+<div class="create-project-modal-container">
+  <h3>Create a new project</h3>
+  <form class="signup-form" [formGroup]="createProjectForm" (ngSubmit)="handleCreateProject()">
+    <input type="text" formControlName="title" class="text-input" placeholder="My new project" />
+    <textarea formControlName="description" class="text-input text-area" placeholder="Description (optional)"></textarea>
+    <div class="btn-container">
+      <button type="reset" class="cancel-btn" (click)="handleCloseModal()">Cancel</button>
+      <button type="submit" class="submit-btn">Save</button>
+    </div>
+  </form>
+</div>
+<div class="underlay"></div>

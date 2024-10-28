@@ -5,7 +5,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 import { EnvService } from './env.service';
 import { ToastService } from './toast.service';
-import { JwtResponse } from '../types/JwtResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -13,33 +12,31 @@ import { JwtResponse } from '../types/JwtResponse';
 export class AuthService implements OnDestroy {
   subs = new SubSink();
 
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private isLoggedInSubject = new BehaviorSubject<boolean>(true);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  constructor(private http: HttpClient, private envService: EnvService, private toastService: ToastService, private router: Router) {
-    this.subs.sink = this.isLoggedIn$.subscribe(isLoggedIn => {
-      if (isLoggedIn) {
-        this.router.navigate(['/home']);
-      }
-    });
-  }
+  // TODO: Hold the user name somewhere
+
+  constructor(private http: HttpClient, private envService: EnvService, private toastService: ToastService, private router: Router) {}
 
   tryRegularLogIn(username: string, password: string) {
     // TODO: Login logic
     this.isLoggedInSubject.next(true);
+    this.router.navigate(['/home']);
   }
 
   verifyGoogleCredential(credential: string) {
-    this.subs.sink = this.http.post<JwtResponse>(`${this.envService.backendUrl}auth/google/verify`, { credential }).subscribe({
-      next: token => {
-        console.log(token)
+    this.subs.sink = this.http.post<any>(`${this.envService.backendUrl}auth/google/verify`, { credential }).subscribe({
+      next: response => {
+        response.success && this.isLoggedInSubject.next(true);
+        this.router.navigate(['/home']);
       },
       error: () => {
         this.toastService.notify({
           level: 'error',
-          title: 'Authentication failed!',
+          title: 'Authentication failed',
           message: '<message>'
-        })
+        });
       }
     });
   }
@@ -48,6 +45,7 @@ export class AuthService implements OnDestroy {
     // TODO: Logout logic
 
     this.isLoggedInSubject.next(false);
+    this.router.navigate(['/login']);
   }
 
   isUserLoggedIn(): Observable<boolean> {

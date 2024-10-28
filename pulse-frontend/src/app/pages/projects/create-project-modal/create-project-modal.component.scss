@@ -1,0 +1,89 @@
+@import '../../../../styles/variables';
+
+.create-project-modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-60%);
+
+  width: 25svw;
+  min-width: 400px;
+  max-width: 500px;
+  height: 30svh;
+  min-height: 200px;
+  max-height: 400px;
+  background-color: #fff;
+  border-radius: 32px;
+  border: 1px solid #e7e6e6;
+  box-shadow: 1.2px 1.2px 3px -15px rgba(0, 0, 0, 0.029), 2.7px 2.7px 6.9px -15px rgba(0, 0, 0, 0.042),
+    4.7px 4.7px 12.1px -15px rgba(0, 0, 0, 0.051), 7.5px 7.5px 19.2px -15px rgba(0, 0, 0, 0.06),
+    11.6px 11.6px 29.6px -15px rgba(0, 0, 0, 0.069), 18.1px 18.1px 46.1px -15px rgba(0, 0, 0, 0.078),
+    30px 30px 76.6px -15px rgba(0, 0, 0, 0.091), 60px 60px 153px -15px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem 2.5rem;
+  z-index: 110;
+}
+
+h3 {
+  margin-block: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  width: 100svw;
+  background-color: #00000066;
+  z-index: 100;
+}
+
+.text-area {
+  resize: none;
+  margin-top: 1rem;
+  flex-grow: 1;
+  overflow: auto;
+  padding-block: 0.75rem;
+}
+
+.cancel-btn,
+.submit-btn {
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-weight: 700;
+  width: 100px;
+}
+
+.cancel-btn { 
+  border: 1px solid $accent;
+  color: $accent;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.submit-btn {
+  background-color: $accent;
+  border: none;
+  color: #fff;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

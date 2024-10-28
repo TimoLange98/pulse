@@ -9,7 +9,7 @@ const dbProvider: ValueProvider = {
     host: 'localhost',
     database: 'pulse-dev',
     password: '12380',
-    port: 5432
+    port: 3003
   })
 };
 

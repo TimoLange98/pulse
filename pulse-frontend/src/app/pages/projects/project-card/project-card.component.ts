@@ -2,9 +2,10 @@ import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/
 import {SubSink} from 'subsink'
 import { Project } from '../../../types/Project';
 import { Collaborator } from '../../../types/Collaborator';
-import { ProjectService } from '../../../services/projects.service';
+import { ProjectService } from '../../../services/project.service';
 import { ToastService } from '../../../services/toast.service';
 import { ProfileThumbnailComponent } from '../../../components/profile-thumbnail/profile-thumbnail.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-card',
@@ -19,7 +20,7 @@ export class ProjectCardComponent implements OnChanges, OnDestroy {
   subs = new SubSink();
   collaborators: Collaborator[] = [];
 
-  constructor(private projectsService: ProjectService, private toastService: ToastService) {}
+  constructor(private projectsService: ProjectService, private toastService: ToastService, private router: Router) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
@@ -42,6 +43,10 @@ export class ProjectCardComponent implements OnChanges, OnDestroy {
 
   getProgressInPercentage() {
     return ((this.project.tasksCompleted + this.project.tasksOpen) / 100) * this.project.tasksCompleted;
+  }
+
+  openProject() {
+    this.router.navigate([`project/${this.project.id}`]);
   }
 
   ngOnDestroy(): void {

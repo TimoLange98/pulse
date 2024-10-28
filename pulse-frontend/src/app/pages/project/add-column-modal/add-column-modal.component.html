@@ -1,0 +1,30 @@
+<div class="add-column-modal-container modal-base">
+  <div class="header-container">
+    <h3>Add new column</h3>
+    <app-close-modal-btn [handleClick]="handleClose" />
+  </div>
+  <!-- <hr /> -->
+  <div class="content">
+    <div class="text-input-container">
+      <label for="title-input">Title *</label>
+      <input id="title-input" type="text" class="text-input">
+    </div>
+    <div class="text-input-container">
+      <label for="description-input">Description</label>
+      <textarea id="description-input" type="text" class="text-input"></textarea>
+    </div>
+    <div class="text-input-container">
+      <label for="description-input">Color</label>
+      <div class="color-selection-container">
+        @for(color of columnColors; track color) {
+          <app-column-color-selector-btn-component [color]="color" [selectedColor]="selectedColor" [handleClick]="handleSelectColor(color)" />
+        } 
+      </div>
+    </div>
+  </div>
+  <div class="btn-container">
+    <button class="cancel-btn" (click)="handleClose()">Cancel</button>
+    <button class="save-btn">Save</button>
+  </div>
+</div>
+<div class="underlay"></div>

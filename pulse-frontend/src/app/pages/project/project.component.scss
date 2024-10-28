@@ -1,0 +1,88 @@
+@import '../../../styles/variables';
+
+.projects-page-container {
+  position: relative;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+}
+
+.content {
+  height: 77svh;
+}
+
+.title-input-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &:hover {
+    .edit-btn {
+      color: #000;
+    }
+  }
+}
+
+.title-input {
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.67em 0;
+  width: 100%;
+  min-width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:disabled {
+    color: #000;
+    background-color: transparent;
+  }
+}
+
+.edit-btn {
+  border: none;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px;
+    color: inherit;
+  }
+}
+
+.add-column-btn {
+  display: grid;
+  place-items: center;
+  border: 2px solid $accent;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 12px;
+  background-color: transparent;
+  box-shadow: 2px 2px 22px -8px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  & svg {
+    color: $accent;
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,111 @@
+@import '../../../../styles/variables';
+
+.add-column-modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-60%);
+  display: flex;
+  flex-direction: column;
+
+  width: 350px;
+  height: 50svh;
+  min-height: 200px;
+  box-shadow: 1.2px 1.2px 3px -15px rgba(0, 0, 0, 0.029), 2.7px 2.7px 6.9px -15px rgba(0, 0, 0, 0.042),
+    4.7px 4.7px 12.1px -15px rgba(0, 0, 0, 0.051), 7.5px 7.5px 19.2px -15px rgba(0, 0, 0, 0.06),
+    6.7px 6.7px 29.6px -15px rgba(0, 0, 0, 0.069), 18.1px 18.1px 46.1px -15px rgba(0, 0, 0, 0.078);
+  z-index: 110;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem .7rem 1.5rem;
+  border-bottom: 1px solid #c3c3c3;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+hr {
+  margin-top: 12px;
+  width: 100%;
+  // border: 1px solid #000;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  gap: 1rem;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  & label {
+    font-weight: 700;
+  }
+}
+
+.text-input {
+  width: 93%;
+  height: 1.5rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+}
+
+.color-selection-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+  align-self: flex-end;
+  width: calc(100% - 3rem);
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #c3c3c3;
+}
+
+.cancel-btn,
+.save-btn {
+  border-radius: 8px;
+  font-weight: 700;
+  width: 80px;
+  height: 35px;
+}
+
+.cancel-btn { 
+  border: 1px solid $accent;
+  color: $accent;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.save-btn {
+  background-color: $accent;
+  border: none;
+  color: #fff;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
