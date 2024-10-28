@@ -1,15 +1,13 @@
 <div class="projects-page-container">
   <div class="header">
     <div class="title-input-container">
-      <div class="input-wrapper">
-        <input
-          #titleInput
-          type="text"
-          [(ngModel)]="project.title" 
-          class="title-input"
-          (keydown)="handleTitleInputKeydown($event)"
-          [disabled]="!isEditTitle" />
-      </div>
+      <input
+        #titleInput
+        type="text"
+        [(ngModel)]="project.title"
+        class="title-input"
+        (keydown)="handleTitleInputKeydown($event)"
+        [disabled]="!isEditTitle" />
       <button (click)="setIsEditTitle(true)" class="edit-btn">
         <svg>
           <use xlink:href="assets/icons/edit.svg#edit-svg"></use>
@@ -22,7 +20,7 @@
       @for(column of project.columns; track column.id) {
       <app-project-column [column]="column" />
       }
-      <button class="add-column-btn">
+      <button class="add-column-btn" (click)="setIsAddNewColumnModalOpen(true)">
         <svg>
           <use xlink:href="assets/icons/plus-small.svg#plus-small-svg"></use>
         </svg>
@@ -30,3 +28,6 @@
     </div>
   </div>
 </div>
+@if(isAddNewColumnModalOpen) {
+  <app-add-column-modal (closeModalEvent)="setIsAddNewColumnModalOpen(false)" />
+}

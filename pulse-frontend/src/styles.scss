@@ -14,16 +14,24 @@ p {
   padding: 0;
 }
 
-h1, img {
+h1,
+img {
   user-select: none;
 }
 
-p, h1, h2, h3, h4, h5, span, input {
-  &::-moz-selection { 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+input {
+  &::-moz-selection {
     color: #000;
     background: $accent--hover;
   }
-  
+
   &::selection {
     color: #000;
     background: $accent--hover;
@@ -37,8 +45,25 @@ p, h1, h2, h3, h4, h5, span, input {
   padding-left: 0.5rem;
   min-width: 0;
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     outline: none;
     border-color: $accent;
   }
+}
+
+.modal-base {
+  background-color: #fff;
+  border-radius: 24px;
+  border: 1px solid #e7e6e6;
+}
+
+.underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  width: 100svw;
+  background-color: #00000066;
+  z-index: 100;
 }
